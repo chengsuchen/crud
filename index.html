@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="PSL Reviews.">
+        <title>Starbucks PSL Review</title>
+
+         <script src="//www.parsecdn.com/js/parse-1.6.0.min.js"></script> 
+
+          <!-- Importing Bootstrap's CSS-->
+         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+
+           <!-- Importing Raty's JavaScript-->
+         <script type="text/javascript" src="raty-2.7.0/lib/jquery.raty.js"></script>
+         <link rel="stylesheet" href="raty-2.7.0/lib/jquery.raty.css">
+
+         <link type="text/css" href="main.css" rel="stylesheet">
+
+    </head>
+
+<body>
+	<div class="container">
+		<h1>Starbucks' PSL (Pumpkin Spice Latte)</h1>
+		<img src="img/PSL.jpeg" />
+		<p>Average Rating: <span id ="average"></span></p>
+        <p>Seasonal, trendy, and ever so delicious. Leave a review for your favorite Fall drink from Starbucks.</p>
+        <h2>Write a review!</h2>
+
+        <!-- Creating a div for Raty -->
+       <br> <div id="stars"></div></br>
+
+        <!-- Creating a div for Raty -->
+        <form>
+       		<div class= "form-group">
+            <input id="reviewTitle" class='form-control' placeholder= 'a title for your review'></input></div>
+            <div class="form-group">
+            <textarea rows="5" cols="12" id="reviewBody" class='form-control' placeholder = "what did you think of this?"></textarea></div>
+                 <br><button type ='submit' class = 'btn btn-primary'>Save</button></br>
+        </form>
+    	</div>
+
+    	<div class ="container" id="list">
+    		     	<h2>Reviews</h2>
+    		
+     	</div>
+</body>
+<script type="text/javascript" src="main.js"></script>
+</html>
