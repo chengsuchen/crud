@@ -1,6 +1,6 @@
 Parse.initialize("4TQmEEZD3qrPIvAZu8fQa36cHuu6UGUCkVGEgbY3", "LKSyuv3WYF4nzE1KWvAXZfm2MIwnQZudrfi7NROm");
 
-
+//declaring a new variable as a parse extension
 var Review = Parse.Object.extend('Review');
 var allRatings;
 var allReviews;
@@ -8,7 +8,7 @@ $('#stars').raty();
 $('#average').raty();
 
 
-// Storing user inputs and clearing the form
+// Storing, setting, and saving user inputs and clearing them
 $('form').submit(function() {
 	var review = new Review();
 	var title = $("#reviewTitle").val();
@@ -27,7 +27,8 @@ $('form').submit(function() {
 });
 
 
-
+//getting the data and passing results to the buildList function
+//resetting ratings back to 0 
 var getData = function() {
 	allRatings = 0;
 	var query = new Parse.Query(Review);
@@ -38,7 +39,8 @@ var getData = function() {
 	})
 }
 
-
+//this function passes data as a parameter and clears the lists before before adding a list item
+//this function also sets the total number of reviews to equal to the input data's array length
 var buildList = function(data) {
 	$('#list').empty()
 	allReviews = data.length;
@@ -47,13 +49,17 @@ var buildList = function(data) {
 	})
 }
 
+//this function stores the user's inputs as individual variables and creates individual list items before 
+//appending them to the div. The helpfulness buttons increment within Parse.
+//This function also increments and calculates the average ratings
+
 var addItem = function(item) {
 	var title = item.get('title');
 	var body = item.get('body');
 	var rating = item.get('rating');
 	allRatings = allRatings + rating;
 	var div = $(document.createElement('div')).appendTo('#list');
-	
+
 	var rRating =$(document.createElement('span')).raty({
 			score: (item.get('rating'))
 		}).appendTo(div);
@@ -79,8 +85,6 @@ var addItem = function(item) {
 		});
 		
 		down.appendTo(rTitle);
-
-
 
 	button.click(function() {
 		item.destroy({
